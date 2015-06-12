@@ -36,7 +36,7 @@ def retrieve_dates(files):
 	
 	print "Start Date: " + str(ordered_dates[0])
 	print "End Date: " + str(ordered_dates[len(ordered_dates) - 1])
-
+ 
 	return t0, tf, ordered_dates 
 
 '''Identifies year, month, and time of beginning and end dates'''
@@ -83,17 +83,15 @@ def all_dates(yr0, m0, d0, yrf, mf, df):
 			count += 100
 			officialdates.append(str(count))
 	
-	print officialdates
 	return officialdates
-
+	
 """Compares two sets of dates to identify missing dates"""
 def comparison(officialdates, ordered_dates):
 	missing_dates = list(set(officialdates) - set(ordered_dates))
 
-	print missing_dates
 	missing = ','.join(sorted(missing_dates))
-	missing = missing.split(',')
-	print "Missing Dates: " + str(missing)
+	print "Missing Dates: " + missing
+	return missing
 
 files = listfiles()
 t0, tf, ordered_dates = retrieve_dates(files)
